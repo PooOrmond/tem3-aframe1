@@ -1,0 +1,26 @@
+#warning-sign {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, sans-serif;
+    font-size: 72px;
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+    text-align: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+}
+
+#warning-sign.fade-out {
+    opacity: 0;
+}
+
+#subtitle {
+    font-size: 24px;
+    color: #ff6666;
+    margin-top: 20px;
+    text-shadow: 0 0 10px #ff6666;
+}

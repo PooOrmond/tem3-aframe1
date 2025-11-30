@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Alien Angel</title>
+</head>
+<body>
+    <!-- Warning Sign -->
+    <div id="warning-sign">
+        DON'T LOOK UP!
+        <div id="subtitle">Seriously... don't</div>
+    </div>
+
+    <a-scene background="color: black" environment="preset: goaland">
+        <!-- Asset Management System -->
+        <a-assets>
+            <a-asset-item id="castle-scene" src="assets/medieval_castle_scene_01/scene.gltf"></a-asset-item>
+            <a-asset-item id="angel-model" src="assets/ophanim_angel/scene.gltf"></a-asset-item>
+        </a-assets>
+
+        <!-- Camera -->
+        <a-entity id="player"
+                  camera
+                  look-controls
+                  wasd-controls="acceleration: 50"
+                  position="0 3 50">
+        </a-entity>
+
+        <!-- Castle -->
+        <a-entity gltf-model="#castle-scene" 
+                  position="0 -1 0" 
+                  scale="100 100 100">
+        </a-entity>
+
+        <!-- Angel -->
+        <a-entity id="angel"
+                  gltf-model="#angel-model"
+                  position="3 120 10"  
+                  scale="10 10 10"   
+                  
+                  animation__float1="property: position; to: 20 85 -10; dur: 8000; easing: easeInOutSine; loop: true; dir: alternate"
+                  animation__float2="property: position; to: -20 75 10; dur: 12000; easing: easeInOutSine; loop: true; dir: alternate; delay: 4000"
+                  
+                  animation__rotate="property: rotation; to: 0 360 0; dur: 30000; easing: linear; loop: true"
+                  animation__tilt="property: rotation; to: 5 0 5; dur: 6000; easing: easeInOutSine; loop: true; dir: alternate"
+                  
+                  animation__pulse="property: scale; to: 6 6 6; dur: 2000; easing: easeInOutSine; loop: true; dir: alternate">
+        </a-entity>
+
+        <!-- Surrounding Objects -->
+        
+        <!-- North Side Objects -->
+        <a-entity id="north1"
+                  geometry="primitive: sphere; radius: 3"
+                  material="color: #00FFAA; shader: flat"
+                  position="0 50 150"
+                  animation__float="property: position; to: 0 80 150; dur: 4000; easing: easeInOutSine; loop: true; dir: alternate"
+                  animation__rotate="property: rotation; to: 360 0 0; dur: 8000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="north2"
+                  geometry="primitive: torus; radius: 4; radiusTubular: 0.4"
+                  material="color: #FF00AA; shader: flat"
+                  position="-40 60 120"
+                  animation__float="property: position; to: -40 90 120; dur: 5000; easing: easeInOutSine; loop: true; dir: alternate; delay: 1000"
+                  animation__rotate="property: rotation; to: 0 360 0; dur: 12000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="north3"
+                  geometry="primitive: box"
+                  material="color: #AA00FF; shader: flat"
+                  position="40 70 130"
+                  animation__float="property: position; to: 40 40 130; dur: 3000; easing: easeInOutSine; loop: true; dir: alternate"
+                  animation__rotate="property: rotation; to: 0 0 360; dur: 6000; loop: true; easing: linear">
+        </a-entity>
+
+        <!-- South Side Objects -->
+        <a-entity id="south1"
+                  geometry="primitive: cone; radiusBottom: 3; height: 4"
+                  material="color: #FFFF00; shader: flat"
+                  position="0 45 -150"
+                  animation__float="property: position; to: 0 75 -150; dur: 4500; easing: easeInOutSine; loop: true; dir: alternate; delay: 500"
+                  animation__rotate="property: rotation; to: 360 180 0; dur: 10000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="south2"
+                  geometry="primitive: octahedron"
+                  material="color: #00AAFF; shader: flat"
+                  position="-50 55 -120"
+                  animation__float="property: position; to: -50 85 -120; dur: 3500; easing: easeInOutSine; loop: true; dir: alternate; delay: 1500"
+                  animation__rotate="property: rotation; to: 180 360 180; dur: 7000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="south3"
+                  geometry="primitive: cylinder; radius: 2; height: 5"
+                  material="color: #FF6600; shader: flat"
+                  position="50 65 -130"
+                  animation__float="property: position; to: 50 35 -130; dur: 4000; easing: easeInOutSine; loop: true; dir: alternate"
+                  animation__rotate="property: rotation; to: 0 360 360; dur: 9000; loop: true; easing: linear">
+        </a-entity>
+
+        <!-- East Side Objects -->
+        <a-entity id="east1"
+                  geometry="primitive: dodecahedron"
+                  material="color: #FF00FF; shader: flat"
+                  position="150 50 0"
+                  animation__float="property: position; to: 150 80 0; dur: 5000; easing: easeInOutSine; loop: true; dir: alternate; delay: 2000"
+                  animation__rotate="property: rotation; to: 360 360 360; dur: 15000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="east2"
+                  geometry="primitive: ring; radiusInner: 2; radiusOuter: 4"
+                  material="color: #00FFFF; shader: flat"
+                  position="120 60 40"
+                  animation__float="property: position; to: 120 90 40; dur: 3000; easing: easeInOutSine; loop: true; dir: alternate"
+                  animation__rotate="property: rotation; to: 90 0 360; dur: 8000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="east3"
+                  geometry="primitive: tetrahedron"
+                  material="color: #AAFF00; shader: flat"
+                  position="130 70 -40"
+                  animation__float="property: position; to: 130 40 -40; dur: 4000; easing: easeInOutSine; loop: true; dir: alternate; delay: 1000"
+                  animation__rotate="property: rotation; to: 0 360 0; dur: 11000; loop: true; easing: linear">
+        </a-entity>
+
+        <!-- West Side Objects -->
+        <a-entity id="west1"
+                  geometry="primitive: icosahedron"
+                  material="color: #FFAA00; shader: flat"
+                  position="-150 55 0"
+                  animation__float="property: position; to: -150 85 0; dur: 4500; easing: easeInOutSine; loop: true; dir: alternate; delay: 500"
+                  animation__rotate="property: rotation; to: 360 0 360; dur: 13000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="west2"
+                  geometry="primitive: plane; width: 6; height: 6"
+                  material="color: #8800FF; shader: flat; side: double"
+                  position="-120 65 50"
+                  animation__float="property: position; to: -120 35 50; dur: 3500; easing: easeInOutSine; loop: true; dir: alternate"
+                  animation__rotate="property: rotation; to: 360 360 0; dur: 9000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="west3"
+                  geometry="primitive: sphere; radius: 2.5"
+                  material="color: #00FF88; shader: flat"
+                  position="-130 45 -50"
+                  animation__float="property: position; to: -130 75 -50; dur: 5000; easing: easeInOutSine; loop: true; dir: alternate; delay: 1500"
+                  animation__rotate="property: rotation; to: 0 0 360; dur: 7000; loop: true; easing: linear">
+        </a-entity>
+
+        <!-- High Above Objects -->
+        <a-entity id="sky1"
+                  geometry="primitive: torusKnot; radius: 3; radiusTubular: 0.3"
+                  material="color: #FF0088; shader: flat"
+                  position="-60 200 60"
+                  animation__float="property: position; to: 60 200 -60; dur: 20000; easing: linear; loop: true"
+                  animation__rotate="property: rotation; to: 360 720 360; dur: 25000; loop: true; easing: linear">
+        </a-entity>
+
+        <a-entity id="sky2"
+                  geometry="primitive: ring; radiusInner: 5; radiusOuter: 8"
+                  material="color: #88FF00; shader: flat"
+                  position="80 180 -80"
+                  animation__float="property: position; to: -80 180 80; dur: 25000; easing: linear; loop: true; delay: 10000"
+                  animation__rotate="property: rotation; to: 0 360 0; dur: 30000; loop: true; easing: linear">
+        </a-entity>
+
+    </a-scene>
+
+    <script src="script.js"></script>
+</body>
+</html>
